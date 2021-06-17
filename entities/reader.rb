@@ -1,22 +1,22 @@
 class Reader
   include Validation
 
-  attr_reader :name, :email, :city, :street, :house
-
   def initialize(name, email, city, street, house)
-    @name = name
-    @email = email
-    @city = city
-    @street = street
-    @house = house
-
-    check_presence
-    check_type
+    if validate!(name, email, city, street, house)
+      @name = name
+    else
+      raise 'Try again'
+    end
   end
 
   private
 
-  def check_presence
+  def validate!(*args)
+    check_presence(*args)
+    check_type(*args)
+  end
+
+  def check_presence(name, email, city, street, house)
     presence_validate!(name)
     presence_validate!(email)
     presence_validate!(city)
@@ -24,7 +24,7 @@ class Reader
     presence_validate!(house)
   end
 
-  def check_type
+  def check_type(name, email, city, street, house)
     class_validate!(name, String)
     class_validate!(email, String)
     class_validate!(city, String)

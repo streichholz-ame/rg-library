@@ -1,18 +1,19 @@
 class Author
+
   include Validation
-  attr_reader :name, :biography
 
   def initialize(name, *biography)
-    @name = name
-    @biography = biography
-
-    validate!
+    if validate!(name, *biography)
+      @name = name
+    else
+      raise 'Try again'
+    end
   end
 
   private
 
-  def validate!
-    presence_validate!(name)
-    class_validate!(name, String)
+  def validate!(arguments)
+    presence_validate!(arguments)
+    class_validate!(arguments, String)
   end
 end

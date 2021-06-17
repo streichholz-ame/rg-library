@@ -35,3 +35,5 @@ Style/SwapValues: # (new in 1.1)
   Enabled: true
 Style/FrozenStringLiteralComment:
   Enabled: false
+Layout/TrailingEmptyLines:
+  EnforcedStyle: final_newline
