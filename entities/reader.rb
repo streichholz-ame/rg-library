@@ -3,6 +3,7 @@ class Reader
 
   def initialize(name, email, city, street, house)
     raise 'Try again' unless validate!(name, email, city, street, house)
+
     @name = name
   end
 

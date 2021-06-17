@@ -5,6 +5,7 @@ class Book
 
   def initialize(title, author)
     raise 'Try again' unless validate!(title, author)
+
     @author = author
   end
 
