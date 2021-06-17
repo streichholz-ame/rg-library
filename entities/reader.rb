@@ -2,11 +2,8 @@ class Reader
   include Validation
 
   def initialize(name, email, city, street, house)
-    if validate!(name, email, city, street, house)
-      @name = name
-    else
-      raise 'Try again'
-    end
+    raise 'Try again' unless validate!(name, email, city, street, house)
+    @name = name
   end
 
   private

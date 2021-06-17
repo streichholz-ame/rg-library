@@ -4,11 +4,10 @@ class Order
   attr_reader :book, :reader
 
   def initialize(book, reader, date = Date.today)
-    if validate!(book, reader, date)
-      @book = book, @reader = reader
-    else
-      raise 'Try again'
-    end
+    raise 'Try again' unless validate!(book, reader, date)
+
+    @book = book
+    @reader = reader
   end
 
   private

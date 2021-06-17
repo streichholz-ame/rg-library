@@ -1,13 +1,10 @@
 class Author
-
   include Validation
 
   def initialize(name, *biography)
-    if validate!(name, *biography)
-      @name = name
-    else
-      raise 'Try again'
-    end
+    raise 'Try again' unless validate!(name, *biography)
+
+    @name = name
   end
 
   private

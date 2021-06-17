@@ -9,6 +9,6 @@ module Validation
   end
 
   def integer_validate!(value)
-    raise IntegerError unless  value.instance_of?(Integer) || value.positive?
+    raise IntegerError unless value.instance_of?(Integer) || value.positive?
   end
 end

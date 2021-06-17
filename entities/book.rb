@@ -1,15 +1,11 @@
 class Book
-
   attr_reader :author
 
   include Validation
 
   def initialize(title, author)
-    if validate!(title, author)
-      @author = author
-    else
-      raise 'Try again'
-    end
+    raise 'Try again' unless validate!(title, author)
+    @author = author
   end
 
   private
