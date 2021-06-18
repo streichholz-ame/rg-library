@@ -2,7 +2,7 @@ class Author
   include Validation
 
   def initialize(name, *biography)
-    raise 'Try again' unless validate!(name, *biography)
+    validate!(name, *biography)
 
     @name = name
   end
